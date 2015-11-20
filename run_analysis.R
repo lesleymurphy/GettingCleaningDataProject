@@ -79,26 +79,31 @@ data<-merge(data_mean2, data_std2, by="ID")
 
 ##Pause to clean up the column names of the many values
 names(data)<-gsub("[[:digit:]]", "", names(data))
-names(data)<-sub("X.", "", names(data))
+names(data)<-sub("^X.", "", names(data))
 names(data)<-sub("mean..", "mean", names(data))
-names(data)<-sub("std..", "std", names(data))
+names(data)<-sub("std..", "standard deviation", names(data))
 names(data)<-sub("meaneq..", "meaneq", names(data))
+names(data)<-gsub("\\.", " ", names(data))
+names(data)<-sub("X$", "(X-axis)", names(data))
+names(data)<-sub("Y$", "(Y-axis)", names(data))
+names(data)<-sub("Z$", "(Z-axis)", names(data))
+
 
 labels<-merge(subjects, activities, by = "ID")
 df<-merge(labels, data, by = "ID")
 df<-select(df, -(ID))
 
 ###Replace Activity numbers with activity names
-df$Activity[df$Activity == 1] <- "Walking"
-df$Activity[df$Activity == 2] <- "Walking_Upstairs"
-df$Activity[df$Activity == 3] <- "Walking_Downstairs"
-df$Activity[df$Activity == 4] <- "Sitting"
-df$Activity[df$Activity == 5] <- "Standing"
-df$Activity[df$Activity == 6] <- "Laying"
+df$Activity[df$Activity == 1] <- "walking"
+df$Activity[df$Activity == 2] <- "walking upstairs"
+df$Activity[df$Activity == 3] <- "walking downstairs"
+df$Activity[df$Activity == 4] <- "sitting"
+df$Activity[df$Activity == 5] <- "standing"
+df$Activity[df$Activity == 6] <- "laying"
 
 #Sort df by Subject and Activity to have a tidy dataset
-
 df<-arrange(df, Subject, Activity)
+names(df)<-tolower(names(df))
 
 ##Now we have tidy dataset
 
@@ -106,7 +111,7 @@ df<-arrange(df, Subject, Activity)
 ##Create "second, independent tidy data set with the average of each variable for each activity and each subject"##
 ##So need to group by Subject and Activity and find average for each variable
 
-second<- group_by(df, Subject, Activity) %>%
+second<- group_by(df, subject, activity) %>%
         summarise_each(funs(mean))
 
 write.table(second, file = "CleaningData.txt", row.names=FALSE)
