@@ -1,5 +1,3 @@
-R code
-
 ####Getting and Cleaning Data Course Project####
 ##Lesley Murphy November 2015##
 
@@ -81,7 +79,10 @@ data<-merge(data_mean2, data_std2, by="ID")
 
 ##Pause to clean up the column names of the many values
 names(data)<-gsub("[[:digit:]]", "", names(data))
-names(data)<-gsub("X.", "", names(data))
+names(data)<-sub("X.", "", names(data))
+names(data)<-sub("mean..", "mean", names(data))
+names(data)<-sub("std..", "std", names(data))
+names(data)<-sub("meaneq..", "meaneq", names(data))
 
 labels<-merge(subjects, activities, by = "ID")
 df<-merge(labels, data, by = "ID")
@@ -110,8 +111,3 @@ second<- group_by(df, Subject, Activity) %>%
 
 write.table(second, file = "CleaningData.txt", row.names=FALSE)
 #####################################################################################################
-
-
-
-
-
