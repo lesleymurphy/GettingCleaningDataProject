@@ -1,4 +1,4 @@
-CodeBook for run_analysis.R for Getting and Cleaning Data Course Project
+#CodeBook for run_analysis.R for Getting and Cleaning Data Course Project
 
 Activities are given codes in the train_y and test_y files (1-6) corresponding to the activities which are defined as follows:
 1 WALKING
