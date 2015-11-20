@@ -16,16 +16,20 @@ R code
 ##
 ##Activity labels for the y- files are in the main folder in "activity_labels"
 
-##load all required libraries
+##set working directory
+setwd("./UCI HAR Datset")
+      
+##load all required libraries/ dplyr must be loaded after plyr to avoid interactions between packages
 library(plyr);library(dplyr)
 library(tidyr)
 library(data.table)
 
 ##Read in all necessary files and add column names##
 features<-read.delim("./features.txt", header=FALSE, sep = ".")
+tidy.name.vector <- make.names(features[,1], unique=TRUE)
 
 train_x<-read.delim("./train/X_train.txt", header=FALSE, sep = "")
-colnames(train_x)<- features[,1]
+colnames(train_x)<- tidy.name.vector
 
 train_y<-read.table("./train/Y_train.txt", header=FALSE)
 colnames(train_y)<- "Activity"
@@ -41,7 +45,7 @@ train_sub2<-mutate(train_sub, ID=c(1:7352))
 ##Repeat steps on the test set###
 ##Load data
 test_x<-read.delim("./test/X_test.txt", header=FALSE, sep = "")
-colnames(test_x)<-features[,1]
+colnames(test_x)<-tidy.name.vector
 
 test_y<-read.table("./test/Y_test.txt", header=FALSE)
 colnames(test_y)<-"Activity"
@@ -74,6 +78,11 @@ data_std2<-mutate(data_std, ID=c(1:10299))
 
 ##merge the three datasets,  using ID to keep them in order, then remove so it does not appear in final dataset
 data<-merge(data_mean2, data_std2, by="ID")
+
+##Pause to clean up the column names of the many values
+names(data)<-gsub("[[:digit:]]", "", names(data))
+names(data)<-gsub("X.", "", names(data))
+
 labels<-merge(subjects, activities, by = "ID")
 df<-merge(labels, data, by = "ID")
 df<-select(df, -(ID))
@@ -86,8 +95,11 @@ df$Activity[df$Activity == 4] <- "Sitting"
 df$Activity[df$Activity == 5] <- "Standing"
 df$Activity[df$Activity == 6] <- "Laying"
 
-##Now we have tidy dataset
+#Sort df by Subject and Activity to have a tidy dataset
+
 df<-arrange(df, Subject, Activity)
+
+##Now we have tidy dataset
 
 ######################################################################################
 ##Create "second, independent tidy data set with the average of each variable for each activity and each subject"##
@@ -98,3 +110,8 @@ second<- group_by(df, Subject, Activity) %>%
 
 write.table(second, file = "CleaningData.txt", row.names=FALSE)
 #####################################################################################################
+
+
+
+
+
