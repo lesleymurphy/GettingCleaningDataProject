@@ -25,7 +25,8 @@ A second code then takes the tidy data.frame, groups the data by Subject and Act
 as described in the file "activity_labels.txt"
 
 ############################################################################################################################
-The data values in train_x and test_x files correspond to the calculations made from the accelerometer and gyroscope
+##The data values in train_x and test_x files 
+correspond to the calculations made from the accelerometer and gyroscope
 measurements and are defined in the "features.txt" file. The list is 561 measurements long, but in the resultant table produced by the script there are only 86 (only means and standard deviations (std)).
 
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
