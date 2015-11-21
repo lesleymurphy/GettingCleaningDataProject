@@ -14,6 +14,7 @@ measurements and are defined in the "features.txt" file. The list is 561 measure
 script there are only 86 (only means and standard deviations (std)).
 
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
+As a note, the columns with 't' indicate time and with 'f' indicate frequency.
 
 The Subjects are given identification numbers of 1-30.
 
