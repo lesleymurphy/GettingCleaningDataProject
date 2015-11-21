@@ -31,15 +31,15 @@ measurements and are defined in the "features.txt" file. The list is 561 measure
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
 As a note, the columns with 't' indicate time and with 'f' indicate frequency.
 
-#Units: 
+##Units: 
 The acceleration signal from the smartphone accelerometer is in standard gravity units 'g'. 
 The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 The angular velocity vector measured by the gyroscope for each window sample is in radians/second.
 
-#The Subjects are given identification numbers of 1-30.
+##The Subjects are given identification numbers of 1-30.
 
 ############################################################################################################################
-#The contents of the README.txt file associated with the dataset is below and includes citations and licensing information:
+##The contents of the README.txt file associated with the dataset is below and includes citations and licensing information:
 
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
