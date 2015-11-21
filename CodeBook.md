@@ -1,5 +1,20 @@
 #CodeBook for run_analysis.R for Getting and Cleaning Data Course Project
 
+The R script starts with loading packages and the files (train_x, train_y, train_sub, test_x, test_y, test_sub, and a file that gives the names for the activities). ID columns are added so that sorting and merging will be done properly.
+
+Then the train and test files are merged and the columns of data that have mean or std (standard deviation) were selected.
+The mean and standard deviation files are then merged.
+The data column variable names are cumbersome and messy, so several lines clean those up.
+
+The three files, data, y, and sub (renamed to values, activities, and subjects) are then brought together.
+
+The numbers in the activities are converted to the activity names and the data.frame sorted by Subject and activity.
+
+Lastly, all column names are set to lower case, per class instructions for tidy names.
+
+A second code then takes the tidy data.frame, groups the data by Subject and Activity and returns the average of all the columns of variables, written into a table that is saved into the working directory.
+
+#########################################################################################################################
 Activities are given codes in the train_y and test_y files (1-6) corresponding to the activities which are defined as follows:
 1 WALKING
 2 WALKING_UPSTAIRS
@@ -9,21 +24,22 @@ Activities are given codes in the train_y and test_y files (1-6) corresponding t
 6 LAYING
 as described in the file "activity_labels.txt"
 
+############################################################################################################################
 The data values in train_x and test_x files correspond to the calculations made from the accelerometer and gyroscope
 measurements and are defined in the "features.txt" file. The list is 561 measurements long, but in the resultant table produced by the script there are only 86 (only means and standard deviations (std)).
 
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
 As a note, the columns with 't' indicate time and with 'f' indicate frequency.
 
-Units: 
+#Units: 
 The acceleration signal from the smartphone accelerometer is in standard gravity units 'g'. 
 The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 The angular velocity vector measured by the gyroscope for each window sample is in radians/second.
 
-The Subjects are given identification numbers of 1-30.
+#The Subjects are given identification numbers of 1-30.
 
-The contents of the README.txt file associated with the dataset is below and includes citations and licensing information:
-
+############################################################################################################################
+#The contents of the README.txt file associated with the dataset is below and includes citations and licensing information:
 
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
