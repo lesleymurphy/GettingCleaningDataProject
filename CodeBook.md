@@ -30,7 +30,7 @@ correspond to the calculations made from the accelerometer and gyroscope
 measurements and are defined in the "features.txt" file. The list is 561 measurements long, but in the resultant table produced by the script there are only 86 (only means and standard deviations (std)).
 
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
-As a note, the columns with 't' indicate time and with 'f' indicate frequency.
+###As a note, the columns with 't' indicate time and with 'f' indicate frequency. 'Acc' indicates the acceleration signal, 'bodyacc' is the body acceleration, and 'gyro' is the angular velocity vector (see Units section below). 
 
 ##Units: 
 The acceleration signal from the smartphone accelerometer is in standard gravity units 'g'. 
