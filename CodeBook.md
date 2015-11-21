@@ -15,7 +15,7 @@ Lastly, all column names are set to lower case, per class instructions for tidy 
 A second code then takes the tidy data.frame, groups the data by Subject and Activity and returns the average of all the columns of variables, written into a table that is saved into the working directory.
 
 #########################################################################################################################
-Activities are given codes in the train_y and test_y files (1-6) corresponding to the activities which are defined as follows:
+##Activities are given codes in the train_y and test_y files (1-6) corresponding to the activities which are defined as follows:
 1 WALKING
 2 WALKING_UPSTAIRS
 3 WALKING_DOWNSTAIRS
