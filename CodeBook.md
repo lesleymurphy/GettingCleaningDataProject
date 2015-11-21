@@ -10,11 +10,15 @@ Activities are given codes in the train_y and test_y files (1-6) corresponding t
 as described in the file "activity_labels.txt"
 
 The data values in train_x and test_x files correspond to the calculations made from the accelerometer and gyroscope
-measurements and are defined in the "features.txt" file. The list is 561 measurements long, but in the resultant table produced by the 
-script there are only 86 (only means and standard deviations (std)).
+measurements and are defined in the "features.txt" file. The list is 561 measurements long, but in the resultant table produced by the script there are only 86 (only means and standard deviations (std)).
 
 Desciptions of the calcuations themselves can be found in the "features_info.txt" file.
 As a note, the columns with 't' indicate time and with 'f' indicate frequency.
+
+Units: 
+The acceleration signal from the smartphone accelerometer is in standard gravity units 'g'. 
+The body acceleration signal obtained by subtracting the gravity from the total acceleration.
+The angular velocity vector measured by the gyroscope for each window sample is in radians/second.
 
 The Subjects are given identification numbers of 1-30.
 
