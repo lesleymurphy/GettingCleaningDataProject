@@ -1,6 +1,6 @@
 #CodeBook for run_analysis.R for Getting and Cleaning Data Course Project
 
-The R script starts with loading packages and the files (train_x, train_y, train_sub, test_x, test_y, test_sub, and a file that gives the names for the activities). ID columns are added so that sorting and merging will be done properly.
+The R script starts with loading packages and the files (train_x, train_y, train_sub, test_x, test_y, test_sub, and a file that gives the names for the 'x' variables). ID columns are added so that sorting and merging will be done properly.
 
 Then the train and test files are merged and the columns of data that have mean or std (standard deviation) were selected.
 The mean and standard deviation files are then merged.
@@ -12,7 +12,7 @@ The numbers in the activities are converted to the activity names and the data.f
 
 Lastly, all column names are set to lower case, per class instructions for tidy names.
 
-A second code then takes the tidy data.frame, groups the data by Subject and Activity and returns the average of all the columns of variables, written into a table that is saved into the working directory.
+A second code then takes the tidy data.frame, groups the data by Subject and Activity and returns the average of all the columns of variables, written into a table that is saved into the working directory (thanks to dplyr for making that calculation easy).
 
 #########################################################################################################################
 ##Activities are given codes in the train_y and test_y files (1-6) corresponding to the activities which are defined as follows:
@@ -37,7 +37,7 @@ The acceleration signal from the smartphone accelerometer is in standard gravity
 The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 The angular velocity vector measured by the gyroscope for each window sample is in radians/second.
 
-##The Subjects are given identification numbers of 1-30.
+##The Subjects have identification numbers of 1-30.
 
 ############################################################################################################################
 ##The contents of the README.txt file associated with the dataset is below and includes citations and licensing information:
